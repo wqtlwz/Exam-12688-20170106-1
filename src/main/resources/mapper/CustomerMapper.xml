@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wqt.mapper.CustomerMapper">
+    <resultMap id="CustomerResultMapper" type="com.wqt.dto.Customer">
+        <result property="firstName" column="first_name"></result>
+    </resultMap>
+
+    <select id="selectByName" resultMap="CustomerResultMapper">
+        SELECT first_name FROM customer WHERE first_name=#{firstName}
+    </select>
+
+</mapper>

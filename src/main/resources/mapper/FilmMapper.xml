@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+        <mapper namespace="com.wqt.mapper.IFilmMapper">
+          <resultMap id="FilmResultMapper" type="com.wqt.dto.Film">
+              <id column="film_id" property="filmId"></id>
+              <result column="title" property="title"></result>
+              <result column="description" property="description"></result>
+              <result column="language_id" property="languageId"></result>
+         </resultMap>
+
+    <select id="selectAll"   resultMap="FilmResultMapper">
+        SELECT film_id filmId,title title,description description,language_id languageId FROM film
+    </select>
+
+
+</mapper>

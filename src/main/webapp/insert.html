@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">电影名字</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="title" placeholder="请输入名字" name="title">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">电影描述</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="description" placeholder="请输入相关描述">
+        </div>
+    </div>
+    <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">电影语言</label>
+    <div class="col-sm-10">
+        <select id="name">
+            <option value="1">English </option>
+            <option value="2">Italian </option>
+            <option value="3">Japanese </option>
+            <option value="4">Mandarin </option>
+            <option value="5">French </option>
+            <option value="6">German </option>
+        </select>
+
+    </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-default" onclick="insert()">添加</button>
+        </div>
+    </div>
+</form>
+      <script>
+          function insert(){
+              var title=$("#title").val();
+              var description=$("#description").val();
+              var name=$("#name").val();
+
+              $ajax({
+
+                  url:"/insert?name="+name+"&title="+title+"&description"+description,
+                  type:"Get",
+                  dataType:"json",
+
+                  success:function(msg){
+                      if(msg[0]=='t'){
+                          location.href="/list.html";
+                      }
+                  }
+
+
+              })
+          }
+      </script>
+</body>
+</html>
